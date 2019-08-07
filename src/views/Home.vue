@@ -11,7 +11,15 @@
             <Icon type="ios-search"></Icon>
             <span>权限管理</span>
           </MenuItem>
+          <MenuItem name="1-4">
+            <Icon type="ios-settings"></Icon>
+            <span>评论管理</span>
+          </MenuItem>
           <MenuItem name="1-3">
+            <Icon type="ios-settings"></Icon>
+            <span>轮播管理</span>
+          </MenuItem>
+          <MenuItem name="1-5">
             <Icon type="ios-settings"></Icon>
             <span>数据统计</span>
           </MenuItem>
