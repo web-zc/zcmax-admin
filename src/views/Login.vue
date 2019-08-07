@@ -1,5 +1,6 @@
 <template>
   <div class="login-content">
+    <!-- 表单 -->
     <Form ref="formLogin" class="login-form" :model="formLogin" :rules="ruleLogin">
       <h1 class="login-title">跳蚤后台管理</h1>
       <FormItem prop="name">
@@ -21,6 +22,7 @@
 </template>
 
 <script>
+import { async } from 'q';
 export default {
   data() {
     return {
@@ -48,13 +50,19 @@ export default {
   },
   methods: {
      handleSubmit(name) {
-      this.$refs[name].validate( async valid => {
+      this.$refs[name].validate(async valid => {
         if (valid) {
          
-          const res = this.$axios.post('/users/login', this.formLogin)
+        const res = await this.$axios.post('/users/login', this.formLogin)
+          
+         const {msg, status} = res.data.meta
+       
+         if(status!==200){
+            this.$Message.error(msg);
+            return;
+         }
           this.$Message.success("登陆成功");
-        } else {
-          this.$Message.error("登陆失败");
+          this.$router.push({name:'user'})
         }
       });
     }
