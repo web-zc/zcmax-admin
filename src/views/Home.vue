@@ -68,9 +68,7 @@
 </template>
 
 <script>
-// window.onload=function(){
-//   history.pushState('', 'd', 'http://localhost:8080/#/home/user')
-// }
+
 export default {  
   
   data() {
